@@ -16,7 +16,7 @@ export var perimeter_size := Vector2(1, 1)
 export (float, 0, 1) var obstacle_probability := 0.1
 
 # Public variables
-var size := inner_size + perimeter_size * 2
+var size := inner_size + 2 * perimeter_size
 
 # Private variables
 onready var _tile_map : TileMap = $TileMap
@@ -30,8 +30,8 @@ func _ready() -> void:
 func setup() -> void:
 	# Sets the game window size to twice the resolution of the world.
 	var map_size_px := size * _tile_map.cell_size
-	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, map_size_px)
-	OS.set_window_size(2* map_size_px)
+	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_VIEWPORT, SceneTree.STRETCH_ASPECT_KEEP, map_size_px)
+	OS.set_window_size(2 * map_size_px)
 	
 
 
@@ -85,5 +85,5 @@ func _pick_random_texture(cell_type: int) -> int:
 	return _rng.randi_range(interval.x, interval.y)
 
 func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("click"):
 		generate()

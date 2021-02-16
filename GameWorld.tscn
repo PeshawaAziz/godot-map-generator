@@ -5,6 +5,7 @@
 [ext_resource path="res://GameWorld.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
+size = 13
 font_data = ExtResource( 1 )
 
 [node name="GameWorld" type="Node2D"]
@@ -16,11 +17,10 @@ cell_size = Vector2( 32, 32 )
 format = 1
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
-margin_left = 48.0
-margin_top = 32.0
-margin_right = 328.0
-margin_bottom = 80.0
+margin_left = 72.0
+margin_top = 64.0
+margin_right = 320.0
+margin_bottom = 88.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
